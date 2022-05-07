@@ -1,4 +1,4 @@
-package co.edu.co.crosscutting.util.sql;
+package co.edu.uco.crosscutting.util.sql;
 
 import java.sql.Connection;
 import java.sql.SQLException;
