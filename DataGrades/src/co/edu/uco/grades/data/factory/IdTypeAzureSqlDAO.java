@@ -1,4 +1,5 @@
-package co.edu.uco.grades.data.dao.azuresql;
+package co.edu.uco.grades.data.factory;
+
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -8,9 +9,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import co.edu.uco.grades.crosscuting.exception.GradesException;
-import co.edu.uco.grades.data.dao.SubjectDAO;
+import co.edu.uco.grades.data.dao.IdTypeDAO;
 import co.edu.uco.grades.data.dao.connection.ConnectionSQL;
-import co.edu.uco.grades.dto.SubjectDTO;
+import co.edu.uco.grades.dto.IdTypeDTO;
 import co.edu.uco.crosscutting.util.numeric.UtilNumeric;
 import co.edu.uco.crosscutting.util.object.UtilObject;
 import co.edu.uco.crosscutting.util.text.UtilText;
@@ -20,20 +21,20 @@ import static co.edu.uco.crosscutting.util.object.UtilObject.getUtilObject;
 
 
 
-public class SubjectAzureSqlDAO extends ConnectionSQL implements SubjectDAO {
+public class IdTypeAzureSqlDAO extends ConnectionSQL implements IdTypeDAO {
 
-	private List<SubjectDTO> parameters;
+	private List<IdTypeDTO> parameters;
 	private Object sb;
-	private SubjectAzureSqlDAO(Connection connection) {
+	private IdTypeAzureSqlDAO(Connection connection) {
 		super(connection);
 	}
 	
-	public static SubjectDAO build(Connection connection) {
-		return new SubjectAzureSqlDAO(connection);
+	public static IdTypeAzureSqlDAO build(Connection connection) {
+		return new IdTypeAzureSqlDAO(connection);
 	}
 
 	@Override
-	public void create(SubjectDTO subject) {
+	public void create(IdTypeDTO subject) {
 		String sql = "INSERT INTO Subject(id, name) VALUES(?,?)";
 		
 		try(PreparedStatement preparedStatement = getConnection().prepareStatement(sql)){
@@ -51,7 +52,7 @@ public class SubjectAzureSqlDAO extends ConnectionSQL implements SubjectDAO {
 	}
 
 	@Override
-	public void update(SubjectDTO subject) {
+	public void update(IdTypeDTO subject) {
 String sql = "UPDATE FROM Subject WHERE id = ?";
 		
 		try(PreparedStatement preparedStatement = getConnection().prepareStatement(sql)){
@@ -73,7 +74,7 @@ String sql = "UPDATE FROM Subject WHERE id = ?";
 		String sql = "DELETE FROM Subject WHERE id = ?";
 		
 		try(PreparedStatement preparedStatement = getConnection().prepareStatement(sql)){
-			preparedStatement.setString(1, subject.getId());
+			preparedStatement.setString(1, idType.getId());
 		}catch (SQLException exception){
 			
 			throw GradesException.buildTechnicalException("There was a problem trying to delete a subject registry on sql server", exception);
@@ -87,11 +88,11 @@ String sql = "UPDATE FROM Subject WHERE id = ?";
 	}
 
 	@Override
-	public List<SubjectDTO> find(SubjectDTO subject) {
+	public List<IdTypeDTO> find(IdTypeDTO subject) {
 		
 		boolean setWhere = true;
 		List<Object> parameters = new ArrayList<>();
-		List<SubjectDTO> results = new ArrayList<SubjectDTO>();
+		List<IdTypeDTO> results = new ArrayList<IdTypeDTO>();
 		
 		StringBuilder sb = new StringBuilder();
 		sb.append("SELECT id, name").append(EMPTY);
@@ -133,8 +134,8 @@ String sql = "UPDATE FROM Subject WHERE id = ?";
 		return results;}
 	}
 		
-	private List<SubjectDTO> assembleResults (ResultSet resultSet) throws Exception {
-		List<SubjectDTO> results = new ArrayList<>();
+	private List<IdTypeDTO> assembleResults (ResultSet resultSet) throws Exception {
+		List<IdTypeDTO> results = new ArrayList<>();
 		
 		try {
 			while (resultSet.next()) {
@@ -152,7 +153,7 @@ String sql = "UPDATE FROM Subject WHERE id = ?";
 
 }
 	
-private List<SubjectDTO> executeQuery(PreparedStatement preparedStatement){
+private List<IdTypeDTO> executeQuery(PreparedStatement preparedStatement){
 	List<SubjectDTO>;
 
 	
@@ -174,9 +175,9 @@ private List<SubjectDTO> executeQuery(PreparedStatement preparedStatement){
 		
 	}
 }
-private SubjectDTO assembleDTO(ResultSet resultSet) throws Exception {
+private IdTypeDTO assembleDTO(ResultSet resultSet) throws Exception {
 	
-	SubjectDTO dto = new SubjectDTO();
+	IdTypeDTO dto = new IdTypeDTO();
 	
 	try {
 		dto.setId(resultSet.getInt("id"));
@@ -196,3 +197,4 @@ private SubjectDTO assembleDTO(ResultSet resultSet) throws Exception {
 
 
 }
+

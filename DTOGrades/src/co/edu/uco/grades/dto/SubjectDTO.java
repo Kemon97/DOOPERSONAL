@@ -12,16 +12,16 @@ public class SubjectDTO {
 		setId (id);
 		setName (UtilText.EMPTY);
 	}
-	private int getId() {
+	public int getId() {
 		return id;
 	}
-	private void setId(int id) {
+	public void setId(int id) {
 		this.id = id;
 	}
-	private String getName() {
+	public String getName() {
 		return name;
 	}
-	private void setName(String name) {
+	public void setName(String name) {
 		this.name = name;
 	}
 	
