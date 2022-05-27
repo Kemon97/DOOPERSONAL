@@ -21,7 +21,7 @@ public class CourseDTO {
 		setInitialDate (initialDate);
 		setFinalDate (finalDate);
 	}
-	private int getId() {
+	public int getId() {
 		return id;
 	}
 	private void setId(int id) {
@@ -39,7 +39,7 @@ public class CourseDTO {
 	private void setProfessor(TeacherDTO professor) {
 		this.professor = professor;
 	}
-	private Date getInitialDate() {
+	public Date getInitialDate() {
 		return initialDate;
 	}
 	private void setInitialDate(Date initialDate) {
