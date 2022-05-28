@@ -6,10 +6,10 @@ import co.edu.uco.grades.dto.IdTypeDTO;
 
 public interface IdTypeFacade {
 	
-	void create(IdTypeDTO dto);
-	void update(IdTypeDTO dto);
-	void delete(int id);
-	List<IdTypeDTO> find(IdTypeDTO dto);
+	void create(IdTypeDTO dto) throws Exception;
+	void update(IdTypeDTO dto) throws Exception;
+	void delete(int id) throws Exception;
+	List<IdTypeDTO> find(IdTypeDTO dto) throws Exception;
 
 
 }

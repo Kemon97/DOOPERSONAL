@@ -14,7 +14,7 @@ public class IdTypeFacadeImpl implements IdTypeFacade {
 	private DAOFactory daoFactory = DAOFactory.getDaoFactory();
 
 	@Override
-	public void create(IdTypeDTO dto) {
+	public void create(IdTypeDTO dto) throws Exception {
 
 		try {
 
@@ -42,7 +42,7 @@ public class IdTypeFacadeImpl implements IdTypeFacade {
 	}
 
 	@Override
-	public void update(IdTypeDTO dto) {
+	public void update(IdTypeDTO dto) throws Exception {
 
 		try {
 
@@ -71,7 +71,7 @@ public class IdTypeFacadeImpl implements IdTypeFacade {
 	}
 
 	@Override
-	public void delete(int id) {
+	public void delete(int id) throws Exception {
 
 		try {
 
@@ -100,7 +100,7 @@ public class IdTypeFacadeImpl implements IdTypeFacade {
 	}
 
 	@Override
-	public List<IdTypeDTO> find(IdTypeDTO dto) {
+	public List<IdTypeDTO> find(IdTypeDTO dto) throws Exception {
 
 		try {
 
