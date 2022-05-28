@@ -1,5 +1,9 @@
 package co.edu.uco.grades.api.controller.validator;
 
-public class Validator {
+import java.util.List;
+
+public interface Validator<D> {
+	
+	List<String> validate(D dto);
 
 }

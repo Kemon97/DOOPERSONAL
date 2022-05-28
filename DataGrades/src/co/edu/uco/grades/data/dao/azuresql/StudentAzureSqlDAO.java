@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import co.edu.uco.grades.crosscuting.exception.GradesException;
 import co.edu.uco.grades.data.dao.StudentDAO;
 import co.edu.uco.grades.data.dao.connection.ConnectionSQL;
+import co.edu.uco.grades.data.factory.DAOFactory;
 import co.edu.uco.grades.dto.StudentDTO;
 
 public class StudentAzureSqlDAO extends ConnectionSQL implements StudentDAO {
@@ -54,6 +55,11 @@ public class StudentAzureSqlDAO extends ConnectionSQL implements StudentDAO {
 	public void find(StudentDTO student) {
 		// TODO Auto-generated method stub
 		
+	}
+
+	public static DAOFactory create() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

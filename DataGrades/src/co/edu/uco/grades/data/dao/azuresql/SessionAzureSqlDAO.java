@@ -28,7 +28,7 @@ import co.edu.uco.grades.dto.SessionDTO;
 				preparedStatement.setInt(1, session.getId());
 			}catch (SQLException exception){
 				
-				throw GradesException.buildTechnicalException("There was a problem trying to create a new studend registry on sql server", exception);
+				throw GradesException.buildTechnicalDataException("There was a problem trying to create a new studend registry on sql server", exception);
 				
 			}catch (Exception exception) {
 				

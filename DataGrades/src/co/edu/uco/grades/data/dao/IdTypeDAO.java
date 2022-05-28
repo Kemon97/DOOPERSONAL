@@ -1,5 +1,6 @@
 package co.edu.uco.grades.data.dao;
 
+import java.sql.SQLException;
 import java.util.List;
 
 import co.edu.uco.grades.dto.IdTypeDTO;

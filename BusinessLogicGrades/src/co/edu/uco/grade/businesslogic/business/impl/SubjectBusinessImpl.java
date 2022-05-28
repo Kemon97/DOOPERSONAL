@@ -12,7 +12,7 @@ public class SubjectBusinessImpl implements SubjectBusiness {
 	
 	private DAOFactory daoFactory;
 	
-	public SubjectBusinessImpl() {
+	public SubjectBusinessImpl() throws Exception {
 		if(UtilObject.getUtilObject().isNull(daoFactory)) {
 			throw GradesException.buildTechnicalBusinessLogicException("It's not possible create a SubjectBusinessImpl when DAoFactory is null");
 		}

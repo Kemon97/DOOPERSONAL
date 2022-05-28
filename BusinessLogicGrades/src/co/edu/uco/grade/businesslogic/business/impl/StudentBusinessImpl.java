@@ -12,7 +12,7 @@ import co.edu.uco.grades.dto.StudentDTO;
 		
 		private DAOFactory daoFactory;
 		
-		public StudentBusinessImpl() {
+		public StudentBusinessImpl() throws Exception {
 			if(UtilObject.getUtilObject().isNull(daoFactory)) {
 				throw GradesException.buildTechnicalBusinessLogicException("It's not possible create a SubjectBusinessImpl when DAoFactory is null");
 			}
