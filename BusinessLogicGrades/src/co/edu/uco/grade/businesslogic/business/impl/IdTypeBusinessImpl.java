@@ -13,10 +13,14 @@ import co.edu.uco.grades.dto.IdTypeDTO;
 		
 		private DAOFactory daoFactory;
 		
-		public IdTypeBusinessImpl() {
+		public IdTypeBusinessImpl() throws Exception {
 			if(UtilObject.getUtilObject().isNull(daoFactory)) {
-				throw GradesException.buildTechnicalBusinessLogicException("It's not possible create a SubjectBusinessImpl when DAoFactory is null");
+				throw GradesException.buildTechnicalBusinessLogicException("It's not possible create a SubjectBusinessImpl when DAOFactory is null");
 			}
+			
+		}
+
+		public IdTypeBusinessImpl(DAOFactory daoFactory2) {
 			
 		}
 

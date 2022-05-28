@@ -37,7 +37,7 @@ public class SubjectAzureSqlDAO extends ConnectionSQL implements SubjectDAO {
 		String sql = "INSERT INTO Subject(id, name) VALUES(?,?)";
 		
 		try(PreparedStatement preparedStatement = getConnection().prepareStatement(sql)){
-			preparedStatement.setString(1, subject.getId());
+			preparedStatement.setInt(1, subject.getId());
 		}catch (SQLException exception){
 			
 			throw GradesException.buildTechnicalException("There was a problem trying to create a new subject registry on sql server", exception);

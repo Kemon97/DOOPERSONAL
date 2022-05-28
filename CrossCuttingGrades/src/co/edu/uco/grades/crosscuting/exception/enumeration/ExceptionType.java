@@ -1,4 +1,4 @@
-package co.uco.grades.crosscuting.exception.enumeration;
+package co.edu.uco.grades.crosscuting.exception.enumeration;
 
 public enum ExceptionType {
 	

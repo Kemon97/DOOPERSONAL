@@ -14,7 +14,7 @@ import co.edu.uco.grades.dto.CourseDTO;
 		
 		public CourseBusinessImpl() {
 			if(UtilObject.getUtilObject().isNull(daoFactory)) {
-				throw GradesException.buildTechnicalBusinessLogicException("It's not possible create a SubjectBusinessImpl when DAoFactory is null");
+				throw GradesException.buildTechnicalDataException("It's not possible create a SubjectBusinessImpl when DAoFactory is null");
 			}
 			
 		}
@@ -46,4 +46,4 @@ import co.edu.uco.grades.dto.CourseDTO;
 	}
 
 
-}
+
